@@ -1,5 +1,5 @@
 <div class="greeting">
-    <h1>Bom dia, Camila</h1>
+    <h1>Bom dia, </h1>
     <p>Terça-feira, 2 de setembro</p>
 </div>
 
