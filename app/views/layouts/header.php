@@ -8,6 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- Script imediato para evitar flash de tela clara se tema escuro estiver ativo -->
+    <script>
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('sitter_theme');
+                if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
 </head>
 
 <body>
@@ -152,5 +164,15 @@
                 <path d="M4 6.5h16M4 12h16M4 17.5h16" />
             </g>
         </symbol>
-        </defs>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <g fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </g>
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+            <g fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </g>
+        </symbol>
     </svg>

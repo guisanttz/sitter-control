@@ -39,12 +39,24 @@
         <button class="icon-btn" aria-label="Notificações"><svg>
                 <use href="#i-bell" />
             </svg><span class="dot"></span></button>
-        <div class="who">
-            <div class="avatar">CF</div>
+        <?php
+        $iniciaisTopbar = 'CU';
+        if (!empty($perfilDados['nome'])) {
+            $partesTopbar = preg_split('/\s+/', trim($perfilDados['nome']));
+            $iniciaisTopbar = mb_strtoupper(mb_substr($partesTopbar[0], 0, 1));
+            if (count($partesTopbar) > 1) {
+                $iniciaisTopbar .= mb_strtoupper(mb_substr(end($partesTopbar), 0, 1));
+            }
+        }
+        ?>
+        <a href="index.php?pagina=perfil" class="who" style="text-decoration:none;color:inherit;" title="Ver Perfil">
+            <div class="avatar"><?= htmlspecialchars($iniciaisTopbar) ?></div>
             <div>
-                <div class="name">Camila Ferreira</div>
+                <div class="name"><?= htmlspecialchars($perfilDados['nome'] ?? 'Cuidadora') ?></div>
                 <div class="role">Cuidadora</div>
             </div>
-        </div>
+        </a>
     </div>
+</header>
+
 </header>
