@@ -1,0 +1,10 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirecionar requisições diretas a /public para a raiz
+    RewriteRule ^public/?$ index.php [R=301,L,QSA]
+    RewriteRule ^public/(.*)$ $1 [R=301,L,QSA]
+</IfModule>
+
